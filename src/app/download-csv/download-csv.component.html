@@ -1,0 +1,108 @@
+<div class="row-title">
+  <h2 class="title">CSV file downloader</h2>
+  <button class="btn btn-primary btn-lg" (click)="submitForm()">Download</button>
+</div>
+
+
+<section class="sources mat-checkbox-red">
+  <h4>Pick the data sources:</h4>
+  <mat-slide-toggle [(ngModel)]="inverter" color="primary">Inverter</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="datalogger1" color="primary">Datalogger1-UTC-1440</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="datalogger2" color="primary">Datalogger2-UTC-1440</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="datalogger24hlestaci" color="primary">Datalogger1-Hora local-24</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="datalogger24hl" color="primary">Datalogger2-Hora local-24</mat-slide-toggle>
+</section>
+
+<div class="date-picker-container">
+  <h4>Select dates:</h4>
+  <mat-form-field>
+    <mat-label>Starting Date</mat-label>
+    <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate">
+    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Finishing Date</mat-label>
+    <input matInput [matDatepicker]="finishPicker" [(ngModel)]="finishDate">
+    <mat-datepicker-toggle matSuffix [for]="finishPicker"></mat-datepicker-toggle>
+    <mat-datepicker #finishPicker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+
+<section class="selector mat-checkbox-yellow" *ngIf="datalogger1||datalogger24hlestaci">
+  <h4>Select the variables Datalogger 1</h4>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Irrad_Global_Avg">VM4T_E_Irrad.Global_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Irrad_Difusa_Avg">VM4T_E_Irrad.Difusa_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_T_Amb_Avg">VM4T_E_T.Amb_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Hum_Rel_Avg">VM4T_E_Hum.Rel_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_P_Rocio_Avg">VM4T_E_P.Rocio_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Vel_viento_Avg">VM4T_E_Vel.viento_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Dir_viento_Avg">VM4T_E_Dir.viento_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_P_atm_Avg">VM4T_E_P.atm_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Precip_Avg">VM4T_E_Precip_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Precip_int_Avg">VM4T_E_Precip.int_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_IO_Irrad_RT1_Avg">VM4T_IO_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData1.VM4T_IO_Temp_RT1_Avg">VM4T_IO_Temp.RT1_Avg</mat-checkbox>
+  
+</section>
+<section class="selector mat-checkbox-yellow" *ngIf="datalogger2||datalogger24hl">
+  <h4>Select the variables of Datalogger 2:</h4>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_E_Irrad_Reflejada_Avg">VM4J_E_Irrad.Reflejada_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_T1_D_Irrad_RT1_Avg">VM4J_T1_D_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_T1_D_Temp_RT1_Avg">VM4J_T1_D_Temp.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_T1_T_Irrad_RT1_Avg">VM4J_T1_T_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_T1_T_Temp_RT1_Avg">VM4J_T1_T_Temp.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_T1_Inclinometro_Avg">VM4J_T1_Inclinometro_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_SP_IML_Irrad_RT1_Avg">VM4J_SP_IML_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_SP_IL_Irrad_RT1_Avg">VM4J_SP_IL_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_SP_D_Temp_RT1_Avg">VM4J_SP_D_Temp.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_SP_T_Temp_RT_Avg">VM4J_SP_T_Temp.RT_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_Temp_RT1_Avg">VM4J_M1_D_Temp.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_TI_Temp_RT1_Avg">VM4J_M1_TI_Temp.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_TS_Temp_RT1_Avg">VM4J_M1_TS_Temp.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_TS_Irrad_RTS1_Avg">VM4J_M1_TS_Irrad.RTS1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_TI_Irrad_RT1_Avg">VM4J_M1_TI_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_Irrad_RT1_Avg">VM4J_M1_D_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_A_Irrad_RT1_Avg">VM4J_M1_D_A_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_J_Irrad_RT1_Avg">VM4J_M1_D_J_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_L_Irrad_RT1_Avg">VM4J_M1_D_L_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_IDAE_Irrad_RT1_Avg">VM4J_M1_D_IDAE_Irrad.RT1_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.PM2_5_Avg">PM2.5_Avg</mat-checkbox>
+  <mat-checkbox [(ngModel)]="filterData2.PM10_Avg">PM10_Avg</mat-checkbox>
+  
+</section>
+
+
+<section class="selector mat-checkbox-yellow" *ngIf="inverter">
+  <h4>Select the variables of inverter</h4>
+  <div class="power-section">
+    <h5>Powers</h5>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_1_P_W">PV module 1</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_2_P_W">PV module 2</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_3_P_W">PV module 3</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_4_P_W">PV module 4</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_5_P_W">PV module 5</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_6_P_W">PV module 6</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_7_P_W">PV module 7</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_8_P_W">PV module 8</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.Str1_1_P_W">Tracker 1 String</mat-checkbox>
+    <mat-checkbox [(ngModel)]="selectAllPower" (ngModelChange)="selectAllPowerChanged($event)" class="select-all-checkbox">Select All</mat-checkbox>
+  </div>
+  
+  <div class="energy-section">
+    <h5>Energies</h5>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_1_E_Wh">PV module 1</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_2_E_Wh">PV module 2</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_3_E_Wh">PV module 3</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_4_E_Wh">PV module 4</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_5_E_Wh">PV module 5</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_6_E_Wh">PV module 6</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_7_E_Wh">PV module 7</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.P1_1_8_E_Wh">PV module 8</mat-checkbox>
+    <mat-checkbox [(ngModel)]="filterInverter.Srt1_1_E_Wh">Tracker 1 String</mat-checkbox>
+    <mat-checkbox [(ngModel)]="selectAllEnergy" (ngModelChange)="selectAllEnergyChanged($event)" class="select-all-checkbox">Select All</mat-checkbox>
+  </div>
+</section>
+
