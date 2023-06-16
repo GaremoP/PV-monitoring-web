@@ -30,6 +30,11 @@
   </mat-form-field>
 </div>
 
+<div *ngIf="loading" class="spinner-overlay">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...huifeofjseifjoesjfsi</span>
+  </div>
+</div>
 
 <section class="selector mat-checkbox-yellow" *ngIf="datalogger1||datalogger24hlestaci">
   <h4>Select the variables Datalogger 1</h4>
@@ -45,8 +50,9 @@
   <mat-checkbox [(ngModel)]="filterData1.VM4T_E_Precip_int_Avg">VM4T_E_Precip.int_Avg</mat-checkbox>
   <mat-checkbox [(ngModel)]="filterData1.VM4T_IO_Irrad_RT1_Avg">VM4T_IO_Irrad.RT1_Avg</mat-checkbox>
   <mat-checkbox [(ngModel)]="filterData1.VM4T_IO_Temp_RT1_Avg">VM4T_IO_Temp.RT1_Avg</mat-checkbox>
-  
+  <mat-checkbox [(ngModel)]="selectAllDatalog1" (ngModelChange)="selectAllDatalog1Changed($event)" class="select-all-checkbox">Select All</mat-checkbox>
 </section>
+
 <section class="selector mat-checkbox-yellow" *ngIf="datalogger2||datalogger24hl">
   <h4>Select the variables of Datalogger 2:</h4>
   <mat-checkbox [(ngModel)]="filterData2.VM4J_E_Irrad_Reflejada_Avg">VM4J_E_Irrad.Reflejada_Avg</mat-checkbox>
@@ -71,7 +77,6 @@
   <mat-checkbox [(ngModel)]="filterData2.VM4J_M1_D_IDAE_Irrad_RT1_Avg">VM4J_M1_D_IDAE_Irrad.RT1_Avg</mat-checkbox>
   <mat-checkbox [(ngModel)]="filterData2.PM2_5_Avg">PM2.5_Avg</mat-checkbox>
   <mat-checkbox [(ngModel)]="filterData2.PM10_Avg">PM10_Avg</mat-checkbox>
-  
 </section>
 
 

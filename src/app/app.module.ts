@@ -19,13 +19,20 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FooterComponent } from './footer/footer.component';
+import { GraphsComponent } from './graphs/graphs.component';
+import { DocumentationComponent } from './documentation/documentation.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DownloadCSVComponent,
     TrialsComponent,
     NavigationBarComponent,
-    FooterComponent
+    FooterComponent,
+    GraphsComponent,
+    DocumentationComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,7 @@ import { FooterComponent } from './footer/footer.component';
     MatDatepickerModule, 
     MatNativeDateModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

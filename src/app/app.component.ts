@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   _MatSlideToggleRequiredValidatorModule,
 } from '@angular/material/slide-toggle';
