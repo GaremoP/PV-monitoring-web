@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./documentation.component.css']
 })
 export class DocumentationComponent {
-
+  TFG: string = 'TFG_Pablo.pdf';
 }

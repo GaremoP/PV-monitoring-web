@@ -1,0 +1,32 @@
+
+.row {
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    gap: 10px;
+  }
+  .title {
+    padding-top: 4px;
+    width: fit-content;
+    margin-left: 0;
+  }
+
+
+  button{
+    text-align:center;
+    box-sizing: border-box;
+    padding-top: 13px;
+    width: 10%;
+    height: 10%;
+    padding-bottom: 13px;
+ }
+  .charts {
+    margin: 2%;
+  }
+ .date-pickers{
+    width: 60%;
+ }
+ #picker1{
+    margin-right: 5px;
+ }
+  

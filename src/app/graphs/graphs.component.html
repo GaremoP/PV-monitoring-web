@@ -1,1 +1,59 @@
-<p>graphs works!</p>
+
+<div class="charts">
+  <div class="row">
+    <h2 class="title">Select dates:</h2>
+    <div class="date-pickers">
+      <mat-form-field id="picker1">
+        <mat-label>Starting Date</mat-label>
+        <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Finishing Date</mat-label>
+        <input matInput [matDatepicker]="finishPicker" [(ngModel)]="finishDate">
+        <mat-datepicker-toggle matSuffix [for]="finishPicker"></mat-datepicker-toggle>
+        <mat-datepicker #finishPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <button class="btn btn-primary btn-lg" (click)="reDraw()">Re-plot</button>
+  </div>
+  <h2 class="title">Datalogger Graphs</h2>
+    <div class="datalog1">
+      <highcharts-chart *ngIf="chartOptions"
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+    
+      style="width: 95%; height: 400px; display: block;"
+    ></highcharts-chart>
+    <highcharts-chart *ngIf="chartOptionsTemp"
+    [Highcharts]="Highcharts"
+    [options]="chartOptionsTemp"
+  
+    style="width: 95%; height: 400px; display: block;"
+  ></highcharts-chart>
+    </div>
+    <div class="Datalogger2">
+      <highcharts-chart *ngIf="chart2Options"
+      [Highcharts]="Highcharts"
+      [options]="chart2Options"
+    
+      style="width: 95%; height: 400px; display: block;"
+    ></highcharts-chart>
+    </div>
+  <h2>Inverter Graphs</h2>
+  <div class="inverter">
+    <highcharts-chart *ngIf="chartInverter"
+    [Highcharts]="Highcharts"
+    [options]="chartInverter"
+  
+    style="width: 95%; height: 400px; display: block;"
+  ></highcharts-chart>
+  </div>
+
+</div>
+
+
+
+

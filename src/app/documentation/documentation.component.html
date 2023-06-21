@@ -5,32 +5,67 @@
     <p class="text">
       Welcome to the documentation for the Solar Park Monitoring Project. This project aims to develop a comprehensive monitoring system for a solar park, enabling real-time data collection, analysis, and optimization of solar panel performance. This document provides an overview of the project, its objectives, and the implemented solution.
     </p>
-  
+    <p class="text">
+      The documentation about how this project was developed from scratch can be seen on the linked memory below.</p>
+      <a href="assets/pdfs/TFG_Pablo.pdf" target="_blank">Open TFG memory</a>
+    <h2 class="section-title">Photovoltaic panels Specification</h2>
+    <table class="table">
+      <tr>
+        <th>Model</th>
+        <th>Nominal Maximum power</th>
+        <th>Optimum Operating Voltage</th>
+        <th>Optimum Operating Current</th>
+        <th>Open Circuit Voltage</th>
+        <th>Short Circuit Current</th>
+        <th>Efficiency</th>
+        <th>Maximum Series Fuse Rating</th>
+        <th>Warranty</th>
+      </tr>
+      <tr>
+        <td>BiKu CS3U-350-365PB-FG</td>
+        <td>355 W</td>
+        <td>39.4 V</td>
+        <td>9,02 A</td>
+        <td>46,8 V</td>
+        <td>9.59 A</td>
+        <td>17,79 %</td>
+        <td>20 A</td>
+        <td>10 years</td>
+      </tr>
+    </table>
+    <a>For more details click the image below:</a>
+    <a href="assets/pdfs/CanadianSolar.pdf" target="_blank">
+      <img src="assets/images/PlacasHorizontal.jpg" alt="Solar panels" class="image">
+    </a>
+    
     <h2 class="section-title">Datalogger Specifications</h2>
     <table class="table">
       <tr>
         <th>Model</th>
+        <th>Analogue inputs</th>
+        <th>Digital inputs</th>
+        <th>Accuracy</th>
         <th>Communication Protocol</th>
         <th>Data Storage Capacity</th>
       </tr>
       <tr>
-        <td>Datalogger Model A</td>
-        <td>Modbus TCP/IP</td>
-        <td>1TB</td>
-      </tr>
-      <tr>
-        <td>Datalogger Model B</td>
-        <td>RS485</td>
-        <td>500GB</td>
+        <td>LOGBOX SE Data Logger</td>
+        <td>4 differential 24-bit and 4 single-ended 12-bit</td>
+        <td>4, maximum input 15 V</td>
+        <td>0.05 % for 24-bit, 0.1 % for 12-bit</td>
+        <td>RS-232</td>
+        <td>512MB SD Card</td>
       </tr>
     </table>
-  
-    <h2 class="section-title">Sensor Data</h2>
+    <a href="assets/pdfs/KippZonen_Manual_LOGBOX_SE_data_logger.pdf" target="_blank">
+      <img src="assets/images/Datalogger1.jpg" alt="Datalogger" class="image">
+    </a>
+    <h2 class="section-title">Sensors</h2>
     <table class="table">
       <tr>
         <th>Sensor</th>
+        <th>Model</th>
         <th>Measurement</th>
-        <th>Last Value</th>
       </tr>
       <tr>
         <td>Temperature Sensor</td>
@@ -48,14 +83,44 @@
         <td>1000 W/m²</td>
       </tr>
     </table>
-  
-    <img src="assets/images/Datalogger1.jpg" alt="Datalogger" class="image">
-  
-    <h2 class="section-title">Solar Power Inverter</h2>
+    <h2 class="section-title">Solar Power Inverter and Optimizer</h2>
     <p class="text">
-      The solar power inverter is a crucial component of the solar park system. It converts the direct current (DC) produced by the solar panels into alternating current (AC) suitable for use in electrical grids. The inverter also provides important data on power production, efficiency, and system performance.
+      The solar power inverter is a crucial component of the solar park system, converting the direct current (DC) produced by the solar panels into usable alternating current (AC) for electrical grids. 
+      It not only facilitates the conversion process but also provides essential data on power production, efficiency, and system performance.
+
+In addition to the inverter, a power optimizer is often connected in systems with multiple solar panels. 
+The power optimizer plays a vital role in optimizing the power output of individual panels by performing maximum power point tracking (MPPT)
+ at the panel level. By mitigating the impact of shading or varying panel conditions, 
+ the power optimizer ensures maximum power extraction from each panel, 
+resulting in enhanced overall system performance and energy generation.
     </p>
-  
+    <table class="table">
+      <tr>
+        <th>Model</th>
+        <th>Nominal Maximum power</th>
+        <th>Optimum Operating Voltage</th>
+        <th>Optimum Operating Current</th>
+        <th>Open Circuit Voltage</th>
+        <th>Short Circuit Current</th>
+        <th>Efficiency</th>
+        <th>Maximum Series Fuse Rating</th>
+        <th>Warranty</th>
+      </tr>
+      <tr>
+        <td>BiKu CS3U-350-365PB-FG</td>
+        <td>355 W</td>
+        <td>39.4 V</td>
+        <td>9,02 A</td>
+        <td>46,8 V</td>
+        <td>9.59 A</td>
+        <td>17,79 %</td>
+        <td>20 A</td>
+        <td>10 years</td>
+      </tr>
+    </table>
+  <a href="assets/pdfs/se-single-phase-HD-wave-inverter-datasheet.pdf" target="_blank">
     <img src="assets/images/InversorAlGrid.jpg" alt="Solar Power Inverter" class="image">
+  </a>
+    
   </div>
   

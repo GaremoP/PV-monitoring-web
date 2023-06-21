@@ -12,9 +12,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-download-csv',
   templateUrl: './download-csv.component.html',
   styleUrls: ['./download-csv.component.css'],
-  providers: [
-    DatePipe,
-  ]
+  providers: [DatePipe]
 })
 export class DownloadCSVComponent implements OnInit{
   //Variables to set the source to download from

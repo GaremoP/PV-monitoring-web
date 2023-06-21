@@ -129,7 +129,7 @@ export class ConsultasService {
         data = [{ ErrroMessage: 'NO DATA AVAILABLE AT THE PICKED DATES' }];
       }
       const csvData = this.convertToCSV(data); // Convert JSON to CSV format.
-      const fileName = `HoraLocal_Datalogger2_from_${startDate.toDateString()}_to_${endDate.toDateString()}.csv`;
+      const fileName = `HLocal_Datalogger1Estaci_from_${startDate.toDateString()}_to_${endDate.toDateString()}.csv`;
       this.downloadFile(csvData, fileName); // Trigger the file download.
     });
   }
@@ -157,7 +157,7 @@ export class ConsultasService {
         data = [{ ErrorMessage: 'NO DATA AVAILABLE AT THE PICKED DATES' }];
       }
       const csvData = this.convertToCSV(data);
-      const fileName = `Hlocal_Datalogger2_from_${startDate.toDateString()}_to_${endDate.toDateString()}.csv`;
+      const fileName = `HLocal_Datalogger2_from_${startDate.toDateString()}_to_${endDate.toDateString()}.csv`;
       this.downloadFile(csvData, fileName);
     });
   }

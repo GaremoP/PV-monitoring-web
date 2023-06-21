@@ -7,6 +7,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 
 const routes: Routes = [
+  {path: '', component:  DownloadCSVComponent},
   {path: 'download', component:  DownloadCSVComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'graphs', component: GraphsComponent},

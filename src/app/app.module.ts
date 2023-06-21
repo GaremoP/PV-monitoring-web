@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GraphsComponent } from './graphs/graphs.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatNativeDateModule,
     MatSelectModule,
     MatCheckboxModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
