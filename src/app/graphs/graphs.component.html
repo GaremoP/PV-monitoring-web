@@ -19,11 +19,12 @@
     </div>
     <button class="btn btn-primary btn-lg" (click)="reDraw()">Re-plot</button>
   </div>
-  <h2 class="title">Datalogger Graphs</h2>
-    <div class="datalog1">
-      <highcharts-chart *ngIf="chartOptions"
+  <h2 class="title">Datalogger Graphs:</h2>
+    <div class="datalog1" style="display: flex; flex-direction: column;
+    justify-content: center; align-items: center;">
+      <highcharts-chart *ngIf="chartOptionsData1Irrad"
       [Highcharts]="Highcharts"
-      [options]="chartOptions"
+      [options]="chartOptionsData1Irrad"
     
       style="width: 95%; height: 400px; display: block;"
     ></highcharts-chart>
@@ -34,21 +35,34 @@
     style="width: 95%; height: 400px; display: block;"
   ></highcharts-chart>
     </div>
-    <div class="Datalogger2">
-      <highcharts-chart *ngIf="chart2Options"
+    <div class="Datalogger2" style="display: flex; flex-direction: column;
+    justify-content: center; align-items: center;">
+      <highcharts-chart *ngIf="chartOptionsDatalogger2Irrad"
       [Highcharts]="Highcharts"
-      [options]="chart2Options"
-    
+      [options]="chartOptionsDatalogger2Irrad"
+
       style="width: 95%; height: 400px; display: block;"
     ></highcharts-chart>
+    <highcharts-chart *ngIf="chartOptionsTemp2"
+      [Highcharts]="Highcharts"
+      [options]="chartOptionsTemp2"
+      style="height: 400px; width: 95%; display: block;"
+    ></highcharts-chart>
+    <highcharts-chart *ngIf="chartOptionsParticles"
+      [Highcharts]="Highcharts"
+      [options]="chartOptionsParticles"
+      style="height: 400px; width: 95%; display: block;"
+    ></highcharts-chart>
     </div>
-  <h2>Inverter Graphs</h2>
-  <div class="inverter">
+
+  <h2>Inverter Graphs:</h2>
+  <div class="inverter" style="display: flex; flex-direction: column;
+  justify-content: center; align-items: center;">
     <highcharts-chart *ngIf="chartInverter"
     [Highcharts]="Highcharts"
     [options]="chartInverter"
   
-    style="width: 95%; height: 400px; display: block;"
+    style="width: 100%; height: 400px; display: block;"
   ></highcharts-chart>
   </div>
 

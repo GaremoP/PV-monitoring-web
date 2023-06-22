@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { Observable, Subject, of } from 'rxjs'
-import { variablesDatalogger1 } from '../download-csv/vars-datalogger1';
-import { variablesDatalogger2 } from '../download-csv/vars-datalogger2';
-import { InverterFilter } from '../download-csv/inverter-vars';
 import * as Highcharts from 'highcharts';
 import { DatePipe } from '@angular/common';
 import { Chart } from 'highcharts';
 import { Options } from 'highcharts';
 import { DateAdapter } from '@angular/material/core';
-
+import { API_URLS } from '../api.config';
 @Component({
   selector: 'graphs',
   templateUrl: './graphs.component.html',
@@ -30,10 +24,12 @@ export class GraphsComponent implements OnInit{
   finishDate: Date;
 
   Highcharts = Highcharts;
-  chart2Options !: {};
+  chartOptionsDatalogger2Irrad !: {};
   chartInverter !: {};
-  chartOptions !: {};
+  chartOptionsData1Irrad !: {};
   chartOptionsTemp !: {};
+  chartOptionsTemp2 !: {};
+  chartOptionsParticles !: {};
 
   constructor(private http: HttpClient, private dateAdapter: DateAdapter<Date>) {    
     this.dateAdapter.setLocale('en-GB'); // dd/MM/yyyy 
@@ -45,13 +41,13 @@ export class GraphsComponent implements OnInit{
   }
    ngOnInit(): void {
     this.getChartInverter(this.startDate, this.finishDate);
-    this.getChart2(this.startDate, this.finishDate);
-    this.getChart1(this.startDate, this.finishDate);
+    this.getChartDatalog2(this.startDate, this.finishDate);
+    this.getChartDatalog1(this.startDate, this.finishDate);
 }
 
 
-  getChart2(startDate: Date, endDate: Date): void {
-    const apiUrl = 'https://localhost:7134/api/Datalogger2Hlocal/Graph'; // API URL to fetch the JSON data
+  getChartDatalog2(startDate: Date, endDate: Date): void {
+    const apiUrl = API_URLS.Datalogger2hlocal_Graph // API URL to fetch the JSON data
 
     let params = new HttpParams();
     params = params.append('StartDate', startDate.toDateString());
@@ -75,12 +71,98 @@ export class GraphsComponent implements OnInit{
           parseFloat(entry['VM4J_T1_D_Irrad.RT1_Avg'])
         ];
       });
-
-      this.initializeChartData2(pair1, pair2);
+      let pair3 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(), // Convert date to milliseconds for Highcharts
+          parseFloat(entry['VM4J_T1_T_Irrad.RT1_Avg'])
+        ];
+      });
+      let pair4 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_SP_IML_Irrad.RT1_Avg'])
+        ];
+      }
+      );
+      let pair5 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_SP_IL_Irrad.RT1_Avg'])
+        ];
+      });
+      let pair6 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_D_J_Irrad.RT1_Avg'])
+        ];
+      });
+      let pair7 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_D_IDAE_Irrad.RT1_Avg'])
+        ];
+      });
+      let pair8 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_D_L_Irrad.RT1_Avg'])
+        ];
+      });
+      let pair9 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_D_A_Irrad.RT1_Avg'])
+        ];
+      });
+      let temp1 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_T1_D_Temp.RT1_Avg'])
+        ];
+      });
+      let temp2 = data.map((entry: any) => { 
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_T1_T_Temp.RT1_Avg'])
+        ];
+      });
+      let temp3 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_D_Temp.RT1_Avg'])
+        ];
+      });
+      let temp4 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_TI_Temp.RT1_Avg'])
+        ];
+      });
+      let temp5 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4J_M1_TS_Temp.RT1_Avg'])
+        ];
+      });
+      let pm25 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['PM2.5_Avg'])
+        ];
+      })
+      let pm10 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['PM10_Avg'])
+        ];
+      })
+      this.initializeChartData2Irrad(pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9);
+      this.initializeChartData2Temp(temp1, temp2, temp3, temp4, temp5);
+      this.initializeChartData2Particles(pm25, pm10);
   });
   }
   getChartInverter(startDate: Date, endDate: Date): void {
-    const apiUrl = 'https://localhost:7134/api/Inverter/Graph'; // API URL to fetch the JSON data
+    const apiUrl = API_URLS.Inverter_Graph; // API URL to fetch the JSON data
 
     let params = new HttpParams();
     params = params.append('StartDate', startDate.toDateString());
@@ -150,8 +232,8 @@ export class GraphsComponent implements OnInit{
       this.initializeChartInverter(pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, allString);
   });
   }
-  getChart1(startDate: Date, endDate: Date): void {
-    const apiUrl = 'https://localhost:7134/api/Datalogger1Hlocal/Graph'; // API URL to fetch the JSON data
+  getChartDatalog1(startDate: Date, endDate: Date): void {
+    const apiUrl = API_URLS.Datalogger1hlocal_Graph; // API URL to fetch the JSON data
 
     let params = new HttpParams();
     params = params.append('StartDate', startDate.toDateString());
@@ -181,20 +263,26 @@ export class GraphsComponent implements OnInit{
           parseFloat(entry['VM4T_E_T.Amb_Avg'])
         ];
       });
-
+      let pair4 = data.map((entry: any) => {
+        return [
+          new Date(entry.Datetime).getTime(),
+          parseFloat(entry['VM4T_E_P.Rocio_Avg'])
+        ];
+      });
       this.initializeChartData1(pair1, pair2);
 
-      this.initializeChartData1Temp(pair3);
+      this.initializeChartData1Temp(pair3, pair4);
   });
   }
 
-  initializeChartData2(values: any[], values2: any[]): void {
-    this.chart2Options = {
+  initializeChartData2Irrad(values: any[], values2: any[], values3: any[], values4: any[], 
+    values5: any[], values6: any[], values7: any[], values8: any[], values9: any[]): void {
+    this.chartOptionsDatalogger2Irrad = {
       chart: {
         zoomType: 'x'
       },
       title: {
-        text: 'Datalogger 2 with two irradiations',
+        text: 'Datalogger 2 Irradiations',
         align: 'left'
       },
       subtitle: {
@@ -242,14 +330,46 @@ export class GraphsComponent implements OnInit{
       },
       series: [
         {
-          name: 'Irrad. RT1 [W/m2]',
+          name: 'Irrad. total Tracker 1, Parte delantera sobre el tracker [W/m2]',
           data: values2,
           color: '#0000FF'
         },
         {
-        name: 'Irrad. Difusa [W/m2]',
-        data: values,
-        color: '#0FF00F'
+          name: 'Irrad. Reflejada [W/m2]',
+          data: values,
+          color: '#0FF00F'
+        },
+        {
+          name: 'Irrad. total Tracker 1, Parte trasera sobre el tracker [W/m2]',
+          data: values3,
+          color: '#FF0000'
+        },
+        {
+          name: 'Irrad. total sistema polar IML [W/m2]',
+          data: values4,
+          color: '#FFFF00'
+        },
+        {
+          name: 'Irrad. total sistema polar IL [W/m2]',
+          data: values5,
+          color: '#F5B625'
+        },
+        {
+          name: 'Irrad. total Mesa1 Jacobson [W/m2]',
+          data: values6,
+          color: '#F525D5'
+        },{
+          name: 'Irrad. total Mesa1 IDAE [W/m2]',
+          data: values7,
+          color: '#581E4F'
+        },{
+          name: 'Irrad. total Mesa1, parte delantera Lorenzo [W/m2]',
+          data: values8,
+          color: '#0BFADE'
+        },{
+          name: 'Irrad. total Mesa1, parte delantera Bayon [W/m2]',
+          data: values9,
+          color: '#14B01E'
         }
       ],
     };
@@ -354,12 +474,12 @@ export class GraphsComponent implements OnInit{
     };
   }
   initializeChartData1(values: any[], values2: any[]): void {
-    this.chartOptions = {
+    this.chartOptionsData1Irrad = {
       chart: {
         zoomType: 'x'
       },
       title: {
-        text: 'Datalogger 1 with two total irradiations',
+        text: 'Datalogger 1 Irradiances',
         align: 'left'
       },
       subtitle: {
@@ -406,24 +526,24 @@ export class GraphsComponent implements OnInit{
         }
       },
       series: [{
-        name: 'Irrad. Global [W/m2]',
+        name: 'Irrad. Global Horizontal [W/m2]',
         data: values,
         color: '#0FF00F'
       },{
-        name: 'Irrad.Difusa [W/m2]',
+        name: 'Irrad.Difusa Horizontal [W/m2]',
         data: values2,
         color: '#0000FF'
       }
       ],
     };
   }
-  initializeChartData1Temp(values: any[]): void {
+  initializeChartData1Temp(values: any[], values2: any[]): void {
     this.chartOptionsTemp = {
       chart: {
         zoomType: 'x'
       },
       title: {
-        text: 'Datalogger 1 Ambient Temperature',
+        text: 'Datalogger 1 Temperatures',
         align: 'left'
       },
       subtitle: {
@@ -473,16 +593,168 @@ export class GraphsComponent implements OnInit{
       series: [{
         name: 'Temperature Amb. ºC',
         data: values,
-        color: '#FFFF00'
+        color: '#FF8903'
+      },
+      {
+        name: 'P Rocío ºC',
+        data: values2,
+        color: '#EEE718'
       }
       ],
     };
   }
-
+  initializeChartData2Temp(values: any[], values2: any[], values3: any[],
+     values4: any[], values5: any[]): void {
+    this.chartOptionsTemp2 = {
+      chart: {
+        zoomType: 'x'
+      },
+      title: {
+        text: 'Datalogger 2 Temperatures',
+        align: 'left'
+      },
+      subtitle: {
+        text: document.ontouchstart === undefined ?
+          'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in',
+        align: 'left'
+      },
+      xAxis: {
+        type: 'datetime',
+      },
+      yAxis: {
+        title: {
+          text: 'ºC'
+        }
+      },
+      legend: {
+        enabled: true
+      },
+      plotOptions: {
+        area: {
+          stacking: 'normal',
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },                        
+            stops: [
+              [0, '#90EE90'], // Start color 
+              [1, '#00FF00'], // Middle color
+              [2, '#8B0000']  // End color
+            ]
+          },
+          marker: {
+            radius: 2
+          },
+          lineWidth: 1,
+          states: {
+            hover: {
+              lineWidth: 1
+            }
+          },
+          threshold: null
+        }
+      },
+      series: [{
+        name: 'Temperature Tracker1 Parte delantera [ºC]',
+        data: values,
+        color: '#FF8903'
+      },
+      {
+        name: 'Temperature Tracker1 Parte trasera [ºC]',
+        data: values2,
+        color: '#EEE718'
+      },
+      {
+        name: 'Temperature Mesa1 Parte delantera [°C]',
+        data: values3,
+        color: '#FF0000'
+      },
+      {
+        name: 'Temperature Mesa1 Parte delantera Inferior [°C]',
+        data: values4,
+        color: '#00FF00'
+      },
+      {
+        name: 'Temperature Mesa1 Parte delantera Superior  [°C]',
+        data: values5,
+        color: '#0000FF'
+      }
+      ],
+    };
+  }
+  initializeChartData2Particles(values: any[], values2: any[]): void {
+    this.chartOptionsParticles = {
+      chart: {
+        zoomType: 'x'
+      },
+      title: {
+        text: 'Datalogger 2 Medidor de particulas',
+        align: 'left'
+      },
+      subtitle: {
+        text: document.ontouchstart === undefined ?
+          'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in',
+        align: 'left'
+      },
+      xAxis: {
+        type: 'datetime',
+      },
+      yAxis: {
+        title: {
+          text: 'µg/m³.'
+        }
+      },
+      legend: {
+        enabled: true
+      },
+      plotOptions: {
+        area: {
+          stacking: 'normal',
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },                        
+            stops: [
+              [0, '#90EE90'], // Start color 
+              [1, '#00FF00'], // Middle color
+              [2, '#8B0000']  // End color
+            ]
+          },
+          marker: {
+            radius: 2
+          },
+          lineWidth: 1,
+          states: {
+            hover: {
+              lineWidth: 1
+            }
+          },
+          threshold: null
+        }
+      },
+      series: [{
+        name: 'PM 2.5',
+        data: values,
+        color: '#FF8903'
+      },
+      {
+        name: 'PM 10',
+        data: values2,
+        color: '#EEE718'
+      }
+      ],
+    };
+  }
   reDraw(){
-    this.getChart2(this.startDate, this.finishDate);
-    this.getChart2(this.startDate, this.finishDate);
-    this.getChart1(this.startDate, this.finishDate);
+    this.getChartDatalog2(this.startDate, this.finishDate);
+    this.getChartInverter(this.startDate, this.finishDate);
+    this.getChartDatalog1(this.startDate, this.finishDate);
   }
 }
 

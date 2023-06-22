@@ -58,24 +58,14 @@ button.btn:hover {
   margin-left: 2%;
   margin-bottom: 7px;
 }
-.input-picker-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  background-color: #d69999;
-  padding: 20px;
-  border-radius: 8px;
-  width: fit-content;
-  margin: 4%; /* Adjust the margins as needed */
-  color: #FAEDCA; /* Set text color to be legible on the background */
-}
+
 
 .selector {
   flex-direction: row;
   position: relative; /* Position the pseudo-element relative to the .selector */
   background-color:#F2C078; /* Set the desired background color */
-  padding: 20px;
-  margin: 20px;
+  padding: 1%;
+  margin: 2%;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

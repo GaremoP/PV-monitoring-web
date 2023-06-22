@@ -5,6 +5,7 @@ import { Observable, Subject, of } from 'rxjs'
 import { variablesDatalogger1 } from './download-csv/vars-datalogger1';
 import { variablesDatalogger2 } from './download-csv/vars-datalogger2';
 import { InverterFilter } from './download-csv/inverter-vars';
+import { API_URLS } from './api.config';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +21,7 @@ export class ConsultasService {
   //Function to download the files from the server in csv format 
   //Make a call to this api and download the data in csv format
   downloadInverterData(startDate: Date, endDate: Date, filters: InverterFilter): void {
-    const apiUrl = 'https://localhost:7134/api/Inverter'; // API URL to fetch the JSON data
+    const apiUrl = API_URLS.InverterFilters; // API URL to fetch the JSON data
 
     let params = new HttpParams();
     params = params.append('StartDate', startDate.toDateString());
@@ -43,7 +44,7 @@ export class ConsultasService {
   }
 
   download1440Datalogger1(startDate: Date, endDate: Date, filters: variablesDatalogger1){
-    const apiUrl = 'https://localhost:7134/api/Datalogger1UTC'; // API URL to fetch the JSON data
+    const apiUrl = API_URLS.Datalogger1UTCFilters; // API URL to fetch the JSON data
 
     let params = new HttpParams();
     params = params.append('StartDate', startDate.toDateString());
@@ -75,7 +76,7 @@ export class ConsultasService {
   }
 
   download1440Datalogger2(startDate: Date, endDate: Date, filters: variablesDatalogger2): void{
-    const apiUrl = 'https://localhost:7134/api/Datalogger2UTC';
+    const apiUrl = API_URLS.Datalogger2UTCFilters;
   
     let params = new HttpParams()
       .append('StartDate', startDate.toDateString())
@@ -105,7 +106,7 @@ export class ConsultasService {
   }
 
   download24Datalogger1(startDate: Date, endDate: Date, filters: variablesDatalogger1){
-    const apiUrl = 'https://localhost:7134/api/Datalogger1Hlocal'; // API URL to fetch the JSON data
+    const apiUrl = API_URLS.Datalogger1hlocal; // API URL to fetch the JSON data
 
     let params = new HttpParams();
     params = params.append('StartDate', startDate.toDateString());
@@ -135,7 +136,7 @@ export class ConsultasService {
   }
 
   download24Datalogger2(startDate: Date, endDate: Date, filters: variablesDatalogger2): void{
-    const apiUrl = 'https://localhost:7134/api/Datalogger2Hlocal';
+    const apiUrl = API_URLS.Datalogger2hlocal;
   
     let params = new HttpParams()
       .append('StartDate', startDate.toDateString())
