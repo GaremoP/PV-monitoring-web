@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { DownloadCSVComponent } from './download-csv/download-csv.component';
-import { TrialsComponent } from './trials/trials.component';
+import { CompareComponent } from './compare/compare.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,7 +28,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
   declarations: [
     AppComponent,
     DownloadCSVComponent,
-    TrialsComponent,
+    CompareComponent,
     NavigationBarComponent,
     FooterComponent,
     GraphsComponent,

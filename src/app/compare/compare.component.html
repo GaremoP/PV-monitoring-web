@@ -1,0 +1,135 @@
+<div class='wrapper'>
+  <div class='row'>
+      <div class='column'>
+        <h4>Period 1: from {{startDateLeft | date:'dd/MM/yyyy' }} 
+          to {{finishDateLeft | date:'dd/MM/yyyy'}}</h4>
+          <div class="date-pickers">
+            <mat-form-field id="picker1">
+              <mat-label>Starting Date</mat-label>
+              <input matInput [matDatepicker]="startPickerLeft" [(ngModel)]="startDateLeft">
+              <mat-datepicker-toggle matSuffix [for]="startPickerLeft"></mat-datepicker-toggle>
+              <mat-datepicker #startPickerLeft></mat-datepicker>
+            </mat-form-field>
+      
+            <mat-form-field id="picker2">
+              <mat-label>Finishing Date</mat-label>
+              <input matInput [matDatepicker]="finishPickerLeft" [(ngModel)]="finishDateLeft">
+              <mat-datepicker-toggle matSuffix [for]="finishPickerLeft"></mat-datepicker-toggle>
+              <mat-datepicker #finishPickerLeft></mat-datepicker>
+            </mat-form-field>
+            <button class="btn btn-primary btn-lg" (click)="reDrawLeft()">Re-plot</button>
+          </div>
+          <div class="datalog1" style="display: flex; flex-direction: column;
+          justify-content: center; align-items: center;">
+              <highcharts-chart *ngIf="chartOptionsData1IrradLeft"
+              [Highcharts]="Highcharts"
+              [options]="chartOptionsData1IrradLeft"
+            
+              style="width: 100%; height: 400px; display: block;">
+              </highcharts-chart>
+                <highcharts-chart *ngIf="chartOptionsTempLeft"
+                [Highcharts]="Highcharts"
+                [options]="chartOptionsTempLeft"
+              
+                style="width: 100%; height: 400px; display: block;">
+              </highcharts-chart>
+          </div>
+          <div class="datalog2" style="display: flex; flex-direction: column;
+          justify-content: center; align-items: center;">
+            <highcharts-chart *ngIf="chartOptionsDatalogger2IrradLeft"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsDatalogger2IrradLeft"
+          
+            style="width: 100%; height: 550px; display: block;">
+            </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsTemp2Left"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsTemp2Left"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsParticlesLeft"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsParticlesLeft"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+          </div>
+          <div class="inverter" style="display: flex; flex-direction: column;
+          justify-content: center; align-items: center;">
+            <highcharts-chart *ngIf="chartInverterLeft"
+            [Highcharts]="Highcharts"
+            [options]="chartInverterLeft"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+          </div>
+      </div>
+
+      <div class='column'>
+        <h4>Period 2: from {{startDateRight | date:'dd/MM/yyyy'}} 
+          to {{finishDateRight| date:'dd/MM/yyyy'}}</h4>
+          <div class="date-pickers">
+            <mat-form-field id="picker1">
+              <mat-label>Starting Date</mat-label>
+              <input matInput [matDatepicker]="startPickerRight" [(ngModel)]="startDateRight">
+              <mat-datepicker-toggle matSuffix [for]="startPickerRight"></mat-datepicker-toggle>
+              <mat-datepicker #startPickerRight></mat-datepicker>
+            </mat-form-field>
+      
+            <mat-form-field id="picker2">
+              <mat-label>Finishing Date</mat-label>
+              <input matInput [matDatepicker]="finishPickerRight" [(ngModel)]="finishDateRight">
+              <mat-datepicker-toggle matSuffix [for]="finishPickerRight"></mat-datepicker-toggle>
+              <mat-datepicker #finishPickerRight></mat-datepicker>
+            </mat-form-field>
+            <button class="btn btn-primary btn-lg" (click)="reDrawRight()">Re-plot</button>
+          </div>
+          <div class="datalog1" style="display: flex; flex-direction: column;
+          justify-content: center; align-items: center;">
+            <highcharts-chart *ngIf="chartOptionsData1IrradRight"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsData1IrradRight"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsTempRight"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsTempRight"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+          </div>
+          <div class="datalog2" style="display: flex; flex-direction: column;
+          justify-content: center; align-items: center;">
+            <highcharts-chart *ngIf="chartOptionsDatalogger2IrradRight"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsDatalogger2IrradRight"
+          
+            style="width: 100%; height: 550px; display: block;">
+            </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsTemp2Right"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsTemp2Right"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsParticlesRight"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsParticlesRight"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+          </div>
+          <div class="inverter" style="display: flex; flex-direction: column;
+          justify-content: center; align-items: center;">
+            <highcharts-chart *ngIf="chartInverterRight"
+            [Highcharts]="Highcharts"
+            [options]="chartInverterRight"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+          </div>
+      </div>
+  </div>
+</div>
