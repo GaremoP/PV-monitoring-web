@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,7 +24,11 @@ import { GraphsComponent } from './graphs/graphs.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { LoginComponent } from './login/login.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     FooterComponent,
     GraphsComponent,
     DocumentationComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,11 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatNativeDateModule,
     MatSelectModule,
     MatCheckboxModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

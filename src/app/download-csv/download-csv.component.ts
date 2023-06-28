@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject} from '@angular/core';
-import { ConsultasService } from 'src/app/consultas.service';
+import { ConsultasService } from 'src/app/services/consultas.service';
 import { DatePipe } from '@angular/common';
 import { DateAdapter } from '@angular/material/core';
 import { variablesDatalogger1 } from 'src/app/download-csv/vars-datalogger1';

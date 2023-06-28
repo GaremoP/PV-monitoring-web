@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable, Subject, of } from 'rxjs'
-import { variablesDatalogger1 } from './download-csv/vars-datalogger1';
-import { variablesDatalogger2 } from './download-csv/vars-datalogger2';
-import { InverterFilter } from './download-csv/inverter-vars';
-import { API_URLS } from './api.config';
+import { variablesDatalogger1 } from '../download-csv/vars-datalogger1';
+import { variablesDatalogger2 } from '../download-csv/vars-datalogger2';
+import { InverterFilter } from '../download-csv/inverter-vars';
+import { API_URLS } from '../api.config';
 @Injectable({
   providedIn: 'root'
 })

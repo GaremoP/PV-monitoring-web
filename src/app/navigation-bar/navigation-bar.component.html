@@ -10,6 +10,12 @@
       <a class="nav-link text-light mr-4 mr-md-6" href="/graphs">Graphs</a>
       <a class="nav-link text-light mr-4 mr-md-6" href="/documentation">Documentation</a>
       <a class="nav-link text-light mr-4 mr-md-6" href="/about">About the project</a>
+      <a *ngIf=!userService.userEmail class="nav-link text-light mr-4 mr-md-6 btn btn-danger" href="/login">
+          Login</a>
+      <a *ngIf=userService.userEmail class="nav-link text-light mr-4 mr-md-6 btn btn-danger" (click)="onLogout()" 
+      style="cursor: pointer;">
+        Logout: {{userService.userEmail}}
+      </a>
     </div>
   </nav>
   
