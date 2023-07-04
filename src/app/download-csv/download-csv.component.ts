@@ -1,12 +1,15 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { ConsultasService } from 'src/app/services/consultas.service';
+import { Subscription } from 'rxjs';
+
 import { DatePipe } from '@angular/common';
 import { DateAdapter } from '@angular/material/core';
+
 import { variablesDatalogger1 } from 'src/app/download-csv/vars-datalogger1';
 import { variablesDatalogger2 } from 'src/app/download-csv/vars-datalogger2';
 import { InverterFilter } from 'src/app/download-csv/inverter-vars';
 
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-download-csv',
@@ -95,42 +98,42 @@ selectAllDatalog1Changed(value: boolean) {
     this.filterData1.VM4T_IO_Temp_RT1_Avg = true; 
   }
 }
-  //Function to download the files from the server in csv format
-  submitForm() {
-    // Perform HTTP request to submit the form data to the server
-    if(this.inverter){
-      this.downloadInverter()
-    }
-    if(this.datalogger1){
-      this.download1440estaci()
-    }
-
-    if(this.datalogger2){
-      this.download1440data()
-    }
-    if(this.datalogger24hl){
-      this.download24data()
-    }
-    if(this.datalogger24hlestaci){
-      this.download24estaci()
-    }
+//Function to download the files from the server in csv format
+submitForm() {
+  // Perform HTTP request to submit the form data to the server
+  if(this.inverter){
+    this.downloadInverter()
+  }
+  if(this.datalogger1){
+    this.download1440estaci()
   }
 
-  //Functions to send the request to download all files
-  async downloadInverter(){
-    this.consultasService.downloadInverterData(this.startDate, this.finishDate, this.filterInverter);
+  if(this.datalogger2){
+    this.download1440data()
   }
-  async download1440estaci(){
-    this.consultasService.download1440Datalogger1(this.startDate, this.finishDate, this.filterData1);
+  if(this.datalogger24hl){
+    this.download24data()
   }
-  async download1440data(){
-    this.consultasService.download1440Datalogger2(this.startDate, this.finishDate, this.filterData2);
+  if(this.datalogger24hlestaci){
+    this.download24estaci()
   }
-  async download24estaci(){
-    this.consultasService.download24Datalogger1(this.startDate, this.finishDate, this.filterData1);
-  }
-  async download24data(){
-    this.consultasService.download24Datalogger2(this.startDate, this.finishDate, this.filterData2);
-  }
+}
+
+//Functions to send the request to download all files
+async downloadInverter(){
+  this.consultasService.downloadInverterData(this.startDate, this.finishDate, this.filterInverter);
+}
+async download1440estaci(){
+  this.consultasService.download1440Datalogger1(this.startDate, this.finishDate, this.filterData1);
+}
+async download1440data(){
+  this.consultasService.download1440Datalogger2(this.startDate, this.finishDate, this.filterData2);
+}
+async download24estaci(){
+  this.consultasService.download24Datalogger1(this.startDate, this.finishDate, this.filterData1);
+}
+async download24data(){
+  this.consultasService.download24Datalogger2(this.startDate, this.finishDate, this.filterData2);
+}
 
 }

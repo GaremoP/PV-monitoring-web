@@ -6,14 +6,14 @@
           <div class="date-pickers">
             <mat-form-field id="picker1">
               <mat-label>Starting Date</mat-label>
-              <input matInput [matDatepicker]="startPickerLeft" [(ngModel)]="startDateLeft">
+              <input matInput [matDatepicker]="startPickerLeft" [max]="finishDateLeft" [(ngModel)]="startDateLeft">
               <mat-datepicker-toggle matSuffix [for]="startPickerLeft"></mat-datepicker-toggle>
               <mat-datepicker #startPickerLeft></mat-datepicker>
             </mat-form-field>
       
             <mat-form-field id="picker2">
               <mat-label>Finishing Date</mat-label>
-              <input matInput [matDatepicker]="finishPickerLeft" [(ngModel)]="finishDateLeft">
+              <input matInput [matDatepicker]="finishPickerLeft" [min]="startDateLeft" [(ngModel)]="finishDateLeft">
               <mat-datepicker-toggle matSuffix [for]="finishPickerLeft"></mat-datepicker-toggle>
               <mat-datepicker #finishPickerLeft></mat-datepicker>
             </mat-form-field>
@@ -54,6 +54,12 @@
           
             style="width: 100%; height: 400px; display: block;">
             </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsInclinometroLeft"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsInclinometroLeft"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
           </div>
           <div class="inverter" style="display: flex; flex-direction: column;
           justify-content: center; align-items: center;">
@@ -72,14 +78,14 @@
           <div class="date-pickers">
             <mat-form-field id="picker1">
               <mat-label>Starting Date</mat-label>
-              <input matInput [matDatepicker]="startPickerRight" [(ngModel)]="startDateRight">
+              <input matInput [matDatepicker]="startPickerRight" [max]="finishDateRight" [(ngModel)]="startDateRight">
               <mat-datepicker-toggle matSuffix [for]="startPickerRight"></mat-datepicker-toggle>
               <mat-datepicker #startPickerRight></mat-datepicker>
             </mat-form-field>
       
             <mat-form-field id="picker2">
               <mat-label>Finishing Date</mat-label>
-              <input matInput [matDatepicker]="finishPickerRight" [(ngModel)]="finishDateRight">
+              <input matInput [matDatepicker]="finishPickerRight" [min]="startDateRight" [(ngModel)]="finishDateRight">
               <mat-datepicker-toggle matSuffix [for]="finishPickerRight"></mat-datepicker-toggle>
               <mat-datepicker #finishPickerRight></mat-datepicker>
             </mat-form-field>
@@ -117,6 +123,12 @@
             <highcharts-chart *ngIf="chartOptionsParticlesRight"
             [Highcharts]="Highcharts"
             [options]="chartOptionsParticlesRight"
+          
+            style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+            <highcharts-chart *ngIf="chartOptionsInclinometroRight"
+            [Highcharts]="Highcharts"
+            [options]="chartOptionsInclinometroRight"
           
             style="width: 100%; height: 400px; display: block;">
             </highcharts-chart>

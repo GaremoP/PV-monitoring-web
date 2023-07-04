@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         console.log('Exito en la autenticacion')
         this.router.navigate(['/download']);
       })
-      .catch(err => this.openSnackBar('Error en la autenticacion', 'Cerrar')
+      .catch(err => this.openSnackBar('Authentication error. Try Again', 'Close')
       );
   } ;
 

@@ -182,7 +182,7 @@ export class ConsultasService {
   }
 
 // Function to trigger file download
-downloadFile(data: string, filename: string) {
+  downloadFile(data: string, filename: string) {
   const blob = new Blob([data], { type: 'text/csv' });
   
   const url = window.URL.createObjectURL(blob);

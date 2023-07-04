@@ -5,14 +5,14 @@
     <div class="date-pickers">
       <mat-form-field id="picker1">
         <mat-label>Starting Date</mat-label>
-        <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate">
+        <input matInput [matDatepicker]="startPicker" [max]="finishDate" [(ngModel)]="startDate">
         <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
         <mat-datepicker #startPicker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Finishing Date</mat-label>
-        <input matInput [matDatepicker]="finishPicker" [(ngModel)]="finishDate">
+        <input matInput [matDatepicker]="finishPicker" [min]="startDate" [(ngModel)]="finishDate">
         <mat-datepicker-toggle matSuffix [for]="finishPicker"></mat-datepicker-toggle>
         <mat-datepicker #finishPicker></mat-datepicker>
       </mat-form-field>
@@ -53,6 +53,11 @@
       [options]="chartOptionsParticles"
       style="height: 400px; width: 95%; display: block;"
     ></highcharts-chart>
+    <highcharts-chart *ngIf="chartOptionsInclinometro"
+    [Highcharts]="Highcharts"
+    [options]="chartOptionsInclinometro"
+    style="height: 400px; width: 95%; display: block;"
+  ></highcharts-chart>
     </div>
 
   <h2>Inverter Graphs:</h2>
@@ -61,7 +66,6 @@
     <highcharts-chart *ngIf="chartInverter"
     [Highcharts]="Highcharts"
     [options]="chartInverter"
-  
     style="width: 95%; height: 400px; display: block;"
   ></highcharts-chart>
   </div>

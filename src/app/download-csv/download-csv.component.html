@@ -1,8 +1,9 @@
 <div class="row-title">
   <h2 class="title">CSV file downloader</h2>
-  <button class="btn btn-primary btn-lg" (click)="submitForm()">Download</button>
-</div>
+  <button class="btn btn-primary btn-lg" (click)="submitForm()" 
+  [disabled]="!(inverter || datalogger1 || datalogger2 || datalogger24hl || datalogger24hlestaci)">Download</button>
 
+</div>
 
 <section class="sources mat-checkbox-red">
   <h4>Pick the data sources:</h4>
@@ -17,14 +18,14 @@
   <h4>Select dates:</h4>
   <mat-form-field>
     <mat-label>Starting Date</mat-label>
-    <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate">
+    <input matInput [matDatepicker]="startPicker" [max]="finishDate" [(ngModel)]="startDate">
     <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
     <mat-datepicker #startPicker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Finishing Date</mat-label>
-    <input matInput [matDatepicker]="finishPicker" [(ngModel)]="finishDate">
+    <input matInput [matDatepicker]="finishPicker" [min]="startDate" [(ngModel)]="finishDate">
     <mat-datepicker-toggle matSuffix [for]="finishPicker"></mat-datepicker-toggle>
     <mat-datepicker #finishPicker></mat-datepicker>
   </mat-form-field>

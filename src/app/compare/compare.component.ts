@@ -48,10 +48,12 @@ export class CompareComponent implements OnInit {
   chartOptionsDatalogger2IrradRight !: {};
   chartOptionsTemp2Right !: {};
   chartOptionsParticlesRight !: {};
+  chartOptionsInclinometroRight !: {};
 
   chartOptionsDatalogger2IrradLeft  !: {};
   chartOptionsTemp2Left !: {};
   chartOptionsParticlesLeft !: {};
+  chartOptionsInclinometroLeft !: {};
 
  ngOnInit(): void {
   this.getChartInverterLeft(this.startDateLeft, this.finishDateLeft);
@@ -403,9 +405,16 @@ getChartDatalog2Right(startDate: Date, endDate: Date): void {
         parseFloat(entry['PM10_Avg'])
       ];
     })
+    let incli = data.map((entry: any) => {
+      return [
+        new Date(entry.Datetime).getTime(),
+        parseFloat(entry['VM4J_T1_Inclinometro_Avg'])
+      ];
+    })
     this.initializeChartData2IrradRight(pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9);
     this.initializeChartData2TempRight(temp1, temp2, temp3, temp4, temp5);
     this.initializeChartData2ParticlesRight(pm25, pm10);
+    this.initializeChartData2InclinometroRight(incli);
 });
 }
 getChartDatalog2Left(startDate: Date, endDate: Date): void {
@@ -518,13 +527,18 @@ getChartDatalog2Left(startDate: Date, endDate: Date): void {
         parseFloat(entry['PM10_Avg'])
       ];
     })
+    let incli = data.map((entry: any) => {
+      return [
+        new Date(entry.Datetime).getTime(),
+        parseFloat(entry['VM4J_T1_Inclinometro_Avg'])
+      ];
+    })
     this.initializeChartData2IrradLeft(pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9);
     this.initializeChartData2TempLeft(temp1, temp2, temp3, temp4, temp5);
     this.initializeChartData2ParticlesLeft(pm25, pm10);
+    this.initializeChartData2InclinometroLeft(incli);
 });
 }
-
-
 
 
 
@@ -1273,6 +1287,130 @@ initializeChartData2TempRight(values: any[], values2: any[], values3: any[],
     ],
   };
 }
+
+initializeChartData2InclinometroLeft(values: any[]): void {
+  this.chartOptionsInclinometroLeft = {
+    chart: {
+      zoomType: 'x'
+    },
+    title: {
+      text: 'Datalogger 2 Inclinometro',
+      align: 'left'
+    },
+    subtitle: {
+      text: document.ontouchstart === undefined ?
+        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in',
+      align: 'left'
+    },
+    xAxis: {
+      type: 'datetime',
+    },
+    yAxis: {
+      title: {
+        text: '°'
+      }
+    },
+    legend: {
+      enabled: true
+    },
+    plotOptions: {
+      area: {
+        stacking: 'normal',
+        fillColor: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1
+          },                        
+          stops: [
+            [0, '#90EE90'], // Start color 
+            [1, '#00FF00'], // Middle color
+            [2, '#8B0000']  // End color
+          ]
+        },
+        marker: {
+          radius: 2
+        },
+        lineWidth: 1,
+        states: {
+          hover: {
+            lineWidth: 1
+          }
+        },
+        threshold: null
+      }
+    },
+    series: [{
+      name: 'Inclinometro',
+      data: values,
+      color: '#FF8903'
+    }
+    ],
+  };
+ }
+ initializeChartData2InclinometroRight(values: any[]): void {
+  this.chartOptionsInclinometroRight = {
+    chart: {
+      zoomType: 'x'
+    },
+    title: {
+      text: 'Datalogger 2 Inclinometro',
+      align: 'left'
+    },
+    subtitle: {
+      text: document.ontouchstart === undefined ?
+        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in',
+      align: 'left'
+    },
+    xAxis: {
+      type: 'datetime',
+    },
+    yAxis: {
+      title: {
+        text: '°'
+      }
+    },
+    legend: {
+      enabled: true
+    },
+    plotOptions: {
+      area: {
+        stacking: 'normal',
+        fillColor: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1
+          },                        
+          stops: [
+            [0, '#90EE90'], // Start color 
+            [1, '#00FF00'], // Middle color
+            [2, '#8B0000']  // End color
+          ]
+        },
+        marker: {
+          radius: 2
+        },
+        lineWidth: 1,
+        states: {
+          hover: {
+            lineWidth: 1
+          }
+        },
+        threshold: null
+      }
+    },
+    series: [{
+      name: 'Inclinometro',
+      data: values,
+      color: '#FF8903'
+    }
+    ],
+  };
+ }
+
 initializeChartData2ParticlesRight(values: any[], values2: any[]): void {
   this.chartOptionsParticlesRight = {
     chart: {
