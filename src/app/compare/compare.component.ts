@@ -595,46 +595,46 @@ initializeChartInverterLeft(values: any[], values2: any[], values3: any[], value
       }
     },
     series: [{
-      name: 'E 1.1',
+      name: 'E 1.1 [Wh]',
       data: values,
       color: '#FF0000'
     },{
-      name: 'E 1.2',
+      name: 'E 1.2 [Wh]',
       data: values2,
       color: '#00FF00'
     },
     {
-      name: 'E 1.3',
+      name: 'E 1.3 [Wh]',
       data: values3,
       color: '#0000FF'
     },
     {
-      name: 'E 1.4',
+      name: 'E 1.4 [Wh]',
       data: values4,
       color: '#FFFF00'
     },
     {
-      name: 'E 1.5',
+      name: 'E 1.5 [Wh]',
       data: values5,
       color: '#00FFFF'
     },
     {
-      name: 'E 1.6',
+      name: 'E 1.6 [Wh]',
       data: values6,
       color: '#FF00FF'
     },
     {
-      name: 'E 1.7',
+      name: 'E 1.7 [Wh]',
       data: values7,
       color: '#FFA500'
     },
     {
-      name: 'E 1.8',
+      name: 'E 1.8 [Wh]',
       data: values8,
       color: '#800080'
     },
     {
-      name: 'Srt 1.1',
+      name: 'Srt 1.1 [Wh]',
       data: valuesAll,
       color: '#000000'
     }
@@ -695,46 +695,46 @@ initializeChartInverterRight(values: any[], values2: any[], values3: any[], valu
       }
     },
     series: [{
-      name: 'E 1.1',
+      name: 'E 1.1 [Wh]',
       data: values,
       color: '#FF0000'
     },{
-      name: 'E 1.2',
+      name: 'E 1.2 [Wh]',
       data: values2,
       color: '#00FF00'
     },
     {
-      name: 'E 1.3',
+      name: 'E 1.3 [Wh]',
       data: values3,
       color: '#0000FF'
     },
     {
-      name: 'E 1.4',
+      name: 'E 1.4 [Wh]',
       data: values4,
       color: '#FFFF00'
     },
     {
-      name: 'E 1.5',
+      name: 'E 1.5 [Wh]',
       data: values5,
       color: '#00FFFF'
     },
     {
-      name: 'E 1.6',
+      name: 'E 1.6 [Wh]',
       data: values6,
       color: '#FF00FF'
     },
     {
-      name: 'E 1.7',
+      name: 'E 1.7 [Wh]',
       data: values7,
       color: '#FFA500'
     },
     {
-      name: 'E 1.8',
+      name: 'E 1.8 [Wh]',
       data: values8,
       color: '#800080'
     },
     {
-      name: 'Srt 1.1',
+      name: 'Srt 1.1 [Wh]',
       data: valuesAll,
       color: '#000000'
     }
@@ -763,7 +763,7 @@ initializeChartData1Right(values: any[], values2: any[]): void {
     },
     yAxis: {
       title: {
-        text: 'W/m2'
+        text: 'Wh/m2'
       }
     },
     legend: {
@@ -797,11 +797,11 @@ initializeChartData1Right(values: any[], values2: any[]): void {
       }
     },
     series: [{
-      name: 'Irrad. Global Horizontal [W/m2]',
+      name: 'Irrad. Global Horizontal [Wh/m2]',
       data: values,
       color: '#0FF00F'
     },{
-      name: 'Irrad.Difusa Horizontal [W/m2]',
+      name: 'Irrad.Difusa Horizontal [Wh/m2]',
       data: values2,
       color: '#0000FF'
     }
@@ -894,7 +894,7 @@ initializeChartData1Left(values: any[], values2: any[]): void {
     },
     yAxis: {
       title: {
-        text: 'W/m2'
+        text: 'Wh/m2'
       }
     },
     legend: {
@@ -928,11 +928,11 @@ initializeChartData1Left(values: any[], values2: any[]): void {
       }
     },
     series: [{
-      name: 'Irrad. Global Horizontal [W/m2]',
+      name: 'Irrad. Global Horizontal [Wh/m2]',
       data: values,
       color: '#0FF00F'
     },{
-      name: 'Irrad.Difusa Horizontal [W/m2]',
+      name: 'Irrad.Difusa Horizontal [Wh/m2]',
       data: values2,
       color: '#0000FF'
     }
@@ -1027,7 +1027,7 @@ initializeChartData2IrradRight(values: any[], values2: any[], values3: any[], va
     },
     yAxis: {
       title: {
-        text: 'W/m2'
+        text: 'Wh/m2'
       }
     },
     legend: {
@@ -1062,44 +1062,44 @@ initializeChartData2IrradRight(values: any[], values2: any[], values3: any[], va
     },
     series: [
       {
-        name: 'Irrad. total Tracker 1, Parte delantera sobre el tracker [W/m2]',
+        name: 'Irrad. total Tracker 1, Parte delantera sobre el tracker [Wh/m2]',
         data: values2,
         color: '#0000FF'
       },
       {
-        name: 'Irrad. Reflejada [W/m2]',
+        name: 'Irrad. Reflejada [Wh/m2]',
         data: values,
         color: '#0FF00F'
       },
       {
-        name: 'Irrad. total Tracker 1, Parte trasera sobre el tracker [W/m2]',
+        name: 'Irrad. total Tracker 1, Parte trasera sobre el tracker [Wh/m2]',
         data: values3,
         color: '#FF0000'
       },
       {
-        name: 'Irrad. total sistema polar IML [W/m2]',
+        name: 'Irrad. total sistema polar IML [Wh/m2]',
         data: values4,
         color: '#FFFF00'
       },
       {
-        name: 'Irrad. total sistema polar IL [W/m2]',
+        name: 'Irrad. total sistema polar IL [Wh/m2]',
         data: values5,
         color: '#F5B625'
       },
       {
-        name: 'Irrad. total Mesa1 Jacobson [W/m2]',
+        name: 'Irrad. total Mesa1 Jacobson [Wh/m2]',
         data: values6,
         color: '#F525D5'
       },{
-        name: 'Irrad. total Mesa1 IDAE [W/m2]',
+        name: 'Irrad. total Mesa1 IDAE [Wh/m2]',
         data: values7,
         color: '#581E4F'
       },{
-        name: 'Irrad. total Mesa1, parte delantera Lorenzo [W/m2]',
+        name: 'Irrad. total Mesa1, parte delantera Lorenzo [Wh/m2]',
         data: values8,
         color: '#0BFADE'
       },{
-        name: 'Irrad. total Mesa1, parte delantera Bayon [W/m2]',
+        name: 'Irrad. total Mesa1, parte delantera Bayon [Wh/m2]',
         data: values9,
         color: '#14B01E'
       }
@@ -1126,7 +1126,7 @@ initializeChartData2IrradLeft(values: any[], values2: any[], values3: any[], val
     },
     yAxis: {
       title: {
-        text: 'W/m2'
+        text: 'Wh/m2'
       }
     },
     legend: {
@@ -1161,44 +1161,44 @@ initializeChartData2IrradLeft(values: any[], values2: any[], values3: any[], val
     },
     series: [
       {
-        name: 'Irrad. total Tracker 1, Parte delantera sobre el tracker [W/m2]',
+        name: 'Irrad. total Tracker 1, Parte delantera sobre el tracker [Wh/m2]',
         data: values2,
         color: '#0000FF'
       },
       {
-        name: 'Irrad. Reflejada [W/m2]',
+        name: 'Irrad. Reflejada [Wh/m2]',
         data: values,
         color: '#0FF00F'
       },
       {
-        name: 'Irrad. total Tracker 1, Parte trasera sobre el tracker [W/m2]',
+        name: 'Irrad. total Tracker 1, Parte trasera sobre el tracker [Wh/m2]',
         data: values3,
         color: '#FF0000'
       },
       {
-        name: 'Irrad. total sistema polar IML [W/m2]',
+        name: 'Irrad. total sistema polar IML [Wh/m2]',
         data: values4,
         color: '#FFFF00'
       },
       {
-        name: 'Irrad. total sistema polar IL [W/m2]',
+        name: 'Irrad. total sistema polar IL [Wh/m2]',
         data: values5,
         color: '#F5B625'
       },
       {
-        name: 'Irrad. total Mesa1 Jacobson [W/m2]',
+        name: 'Irrad. total Mesa1 Jacobson [Wh/m2]',
         data: values6,
         color: '#F525D5'
       },{
-        name: 'Irrad. total Mesa1 IDAE [W/m2]',
+        name: 'Irrad. total Mesa1 IDAE [Wh/m2]',
         data: values7,
         color: '#581E4F'
       },{
-        name: 'Irrad. total Mesa1, parte delantera Lorenzo [W/m2]',
+        name: 'Irrad. total Mesa1, parte delantera Lorenzo [Wh/m2]',
         data: values8,
         color: '#0BFADE'
       },{
-        name: 'Irrad. total Mesa1, parte delantera Bayon [W/m2]',
+        name: 'Irrad. total Mesa1, parte delantera Bayon [Wh/m2]',
         data: values9,
         color: '#14B01E'
       }

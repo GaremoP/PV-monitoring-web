@@ -3,7 +3,7 @@
   
     <h2 class="section-title">Introduction</h2>
     <p class="text">
-      Welcome to the documentation for the Solar Park Monitoring Project. This project aims to develop a comprehensive monitoring system for a solar park, enabling real-time data collection, analysis, and optimization of solar panel performance. This document provides an overview of the project, its objectives, and the implemented solution.
+      Welcome to the documentation for the Solar Park Monitoring Project. Find below the specifications for the dataloggers currently been used, the inverter and the energy optimizers.
     </p>
     <p class="text">
       The documentation about how this project was developed from scratch can be seen on the linked memory below.</p>
@@ -38,12 +38,13 @@
       <img src="assets/images/PlacasHorizontal.jpg" alt="Solar panels" class="image">
     </a>
     
-    <h2 class="section-title">Datalogger Specifications</h2>
+    <h2 class="section-title">Dataloggers Specifications</h2>
     <table class="table">
       <tr>
         <th>Model</th>
         <th>Analogue inputs</th>
         <th>Digital inputs</th>
+        <th>Serial input</th>
         <th>Accuracy</th>
         <th>Communication Protocol</th>
         <th>Data Storage Capacity</th>
@@ -52,6 +53,7 @@
         <td>LOGBOX SE Data Logger</td>
         <td>4 differential 24-bit and 4 single-ended 12-bit</td>
         <td>4, maximum input 15 V</td>
+        <td>RS-485 port for up to 8x compatible Modbus® devices from Kipp & Zonen, Lufft or IMT</td>
         <td>0.05 % for 24-bit, 0.1 % for 12-bit</td>
         <td>RS-232</td>
         <td>512MB SD Card</td>
@@ -61,29 +63,6 @@
     <a href="assets/pdfs/KippZonen_Manual_LOGBOX_SE_data_logger.pdf" target="_blank">
       <img src="assets/images/Datalogger1.jpg" alt="Datalogger" class="image">
     </a>
-    <h2 class="section-title">Sensors</h2>
-    <table class="table">
-      <tr>
-        <th>Sensor</th>
-        <th>Model</th>
-        <th>Measurement</th>
-      </tr>
-      <tr>
-        <td>Temperature Sensor</td>
-        <td>Ambient Temperature</td>
-        <td>25.3°C</td>
-      </tr>
-      <tr>
-        <td>Humidity Sensor</td>
-        <td>Relative Humidity</td>
-        <td>50%</td>
-      </tr>
-      <tr>
-        <td>Light Sensor</td>
-        <td>Irradiance</td>
-        <td>1000 W/m²</td>
-      </tr>
-    </table>
     <h2 class="section-title">Solar Power Inverter and Optimizer</h2>
     <p class="text">
       The solar power inverter is a crucial component of the solar park system, converting the direct current (DC) produced by the solar panels into usable alternating current (AC) for electrical grids. 
@@ -98,37 +77,84 @@ resulting in enhanced overall system performance and energy generation.
     <table class="table">
       <tr>
         <th>Model</th>
-        <th>Nominal Maximum power</th>
-        <th>Optimum Operating Voltage</th>
-        <th>Optimum Operating Current</th>
-        <th>Open Circuit Voltage</th>
-        <th>Short Circuit Current</th>
-        <th>Efficiency</th>
-        <th>Maximum Series Fuse Rating</th>
-        <th>Warranty</th>
+        <th>Nominal Output Power (AC)</th>
+        <th>Nominal Output Voltage</th>
+        <th>Maximum output Current</th>
+        <th>THD</th>
+        <th>Maximum Input Power</th>
+        <th>Maximum Input Voltage (DC)</th>
+        <th>Maximum Input Current (DC)</th>
+        <th>Maximum Efficiency</th>
+        <th>Weight</th>
+        <th>Dimensions</th>
       </tr>
       <tr>
-        <td>Kipp&Zonnen</td>
-        <td>355 W</td>
-        <td>39.4 V</td>
-        <td>9,02 A</td>
-        <td>46,8 V</td>
-        <td>9.59 A</td>
-        <td>17,79 %</td>
-        <td>20 A</td>
-        <td>10 years</td>
+        <td>SolarEdge Home SE400H</td>
+        <td>4000 VA</td>
+        <td>220/230 V V</td>
+        <td>18.5 A</td>
+        <td>Less than 3%</td>
+        <td>8000 W</td>
+        <td>480 V</td>
+        <td>11.5 A</td>
+        <td>99.2%</td>
+        <td>9 Kg</td>
+        <td>280 x 370 x 142 mm</td>
       </tr>
     </table>
-  <a>For more details click the image below:</a>
+  <a>For more details click the images below:</a>
   <a href="assets/pdfs/se-single-phase-HD-wave-inverter-datasheet.pdf" target="_blank">
     <img src="assets/images/InversorAlGrid.jpg" alt="Solar Power Inverter" class="image">
   </a>
+  <table class="table">
+    <tr>
+      <th>Model</th>
+      <th>Maximum Absolute Voltage at input</th>
+      <th>DC nominal power at input</th>
+      <th>Range of MPPT</th>
+      <th>Nominal Output Voltage (AC)</th>
+      <th>Maximum Current in shortcircuit</th>
+      <th>Maximum efficiency</th>
+      <th>Maximum Output Current</th>
+      <th>Maximum Output Voltage</th>
+    </tr>
+    <tr>
+      <td>SolarEdge Optimizador de energía P404</td>
+      <td>80 V</td>
+      <td>405 W</td>
+      <td>12.5-80</td>
+      <td>220/230 V V</td>
+      <td>10.1 A</td>
+      <td>99.5%</td>
+      <td>15 A</td>
+      <td>85 V</td>
+    </tr>
+  </table>
   <a href="assets/pdfs/SolarEdge-optimizador.pdf" target="_blank">
-    <img src="assets/images/diseñostring.png" alt="Solar Power Optimizer" class="image">
-  </a>
-  <a href="assets/pdfs/se-power-optimizer-single-string-design-application-note-sp.pdf" target="_blank">
     <img src="assets/images/OptimizadorInversor.jpg" alt="Design String" class="image">
   </a>
-    
+  <h2 class="section-title">Sensors</h2>
+  <table class="table">
+    <tr>
+      <th>Sensor</th>
+      <th>Model</th>
+      <th>Measurement</th>
+    </tr>
+    <tr>
+      <td>Temperature Sensor</td>
+      <td>Ambient Temperature</td>
+      <td>25.3°C</td>
+    </tr>
+    <tr>
+      <td>Humidity Sensor</td>
+      <td>Relative Humidity</td>
+      <td>50%</td>
+    </tr>
+    <tr>
+      <td>Light Sensor</td>
+      <td>Irradiance</td>
+      <td>1000 W/m²</td>
+    </tr>
+  </table>
   </div>
   
