@@ -22,17 +22,16 @@ export class CompareComponent implements OnInit {
   constructor(private http: HttpClient, private dateAdapter: DateAdapter<Date>) {    
     this.dateAdapter.setLocale('en-GB'); // dd/MM/yyyy 
 
-    const startDate1 = new Date(2022, 11, 1); // Months are zero-based, so 4 represents May
-    const finishDate1 = new Date(2022, 11, 15);
+    const finishDate2 = new Date();
+    const startDate2 = new Date(finishDate2.getFullYear(), finishDate2.getMonth()-1, finishDate2.getDay()); 
 
-    const startDate2 = new Date(2022, 11, 16); 
-    const finishDate2 = new Date(2022, 11, 31);
+    const finishDate1 = startDate2;
+    const startDate1 = new Date(finishDate1.getFullYear(), finishDate1.getMonth()-1, finishDate1.getDay());  
 
     this.startDateLeft = startDate1;
     this.finishDateLeft = finishDate1;
     this.startDateRight = startDate2;
     this.finishDateRight = finishDate2;
-
 
   }
   Highcharts = Highcharts;

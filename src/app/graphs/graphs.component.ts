@@ -32,8 +32,9 @@ export class GraphsComponent implements OnInit{
 
   constructor(private http: HttpClient, private dateAdapter: DateAdapter<Date>) {    
     this.dateAdapter.setLocale('en-GB'); // dd/MM/yyyy 
-    const startDate = new Date(2022, 0, 1); // Months are zero-based, so 4 represents May
-    const finishDate = new Date(2022, 11, 30);
+    const finishDate = new Date();
+    const startDate = new Date(finishDate.getFullYear(), finishDate.getMonth() - 1, finishDate.getDate()); // Months are zero-based, so 4 represents May
+    
     
     this.startDate = startDate;
     this.finishDate = finishDate;
