@@ -17,8 +17,7 @@ const routes: Routes = [
    ...canActivate(()=>redirectUnauthorizedTo(['/login']))},
   {path: 'graphs', component: GraphsComponent
   , ...canActivate(()=>redirectUnauthorizedTo(['/login']))},
-  {path: 'about', component: AboutUsComponent
-  , ...canActivate(()=>redirectUnauthorizedTo(['/login']))},
+  {path: 'about', component: AboutUsComponent},
   {path: 'documentation', component: DocumentationComponent,
    ...canActivate(()=>redirectUnauthorizedTo(['/login']))},
   {path: 'login', component: LoginComponent}
